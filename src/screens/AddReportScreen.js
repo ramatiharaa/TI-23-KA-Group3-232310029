@@ -82,11 +82,9 @@ const AddReportScreen = () => {
                 parsed = [];
             }
 
-            report.postDateTime = new Date();
-
             const newReport = {
                 ...report,
-                id: Date.now(),
+                postDateTime: Date.now(),
                 waktuKejadian: new Date(report.waktuKejadian).toISOString(),
             };
 
@@ -94,7 +92,7 @@ const AddReportScreen = () => {
             await AsyncStorage.setItem("reportData", JSON.stringify(updatedData));
 
             console.log("Data report berhasil ditambahkan:", newReport);
-            navigation.goBack();
+            navigation.navigate('Report');
             await Notifications.scheduleNotificationAsync({
                 content: {
                     title: "Laporan Baru",

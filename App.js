@@ -44,10 +44,6 @@ export default function App() {
 
         setupNotifications();
 
-        const subscription = Notifications.addNotificationReceivedListener((notification) => {
-            Alert.alert(notification.request.content.title, notification.request.content.body);
-        });
-
         return () => {
             subscription.remove();
         };

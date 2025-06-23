@@ -22,18 +22,18 @@ const ReportScreen = () => {
             }).start();
 
             const fetchReports = async () => {
-            try {
-                const data = await AsyncStorage.getItem("reportData");
-                if (data !== null) {
-                const parsedData = JSON.parse(data);
-                const sorted = parsedData.sort((a, b) => b.id - a.id);
-                setReports(sorted);
-                } else {
-                setReports([]);
+                try {
+                    const data = await AsyncStorage.getItem("reportData");
+                    if (data !== null) {
+                        const parsedData = JSON.parse(data);
+                        const sorted = parsedData.sort((a, b) => b.postDateTime - a.postDateTime);
+                        setReports(sorted);
+                    } else {
+                    setReports([]);
+                    }
+                } catch (e) {
+                    console.log("Gagal ambil data:", e);
                 }
-            } catch (e) {
-                console.log("Gagal ambil data:", e);
-            }
             };
 
             fetchReports();
@@ -84,7 +84,17 @@ const ReportScreen = () => {
                                                 <View style={styles.dotStyle} />
                                                 <Text style={styles.linetwo}>{item.lokasiBencanaAlam}</Text>
                                                 <View style={styles.dotStyle} />
-                                                <Text style={styles.linetwo}>{new Date(item.waktuKejadian).toLocaleString("id-ID")}</Text>
+                                                <Text style={styles.linetwo}>
+                                                    {new Date(item.waktuKejadian).toLocaleString("id-ID", {
+                                                        day: "2-digit",
+                                                        month: "long",
+                                                        year: "numeric"
+                                                    }) + ", " + new Date(item.waktuKejadian).toLocaleTimeString("id-ID", {
+                                                        hour: "2-digit",
+                                                        minute: "2-digit",
+                                                        hour12: false
+                                                    }).replace(".", ":")}
+                                                </Text>
                                             </View>
 
                                             {item.alamatLengkap !== "" && (
@@ -118,7 +128,7 @@ const ReportScreen = () => {
 
                                     <View style={{ marginTop: 10 }}>
                                         <Text style={{ fontSize: 10, color: "gray" }}>
-                                            {new Date(item.id).toLocaleString("id-ID")}
+                                            {new Date(item.postDateTime).toLocaleString("id-ID")}
                                         </Text>
                                     </View>
                                 </View>
