@@ -8,11 +8,11 @@ import { useIsFocused } from "@react-navigation/native";
 const allDistricts = ["Bogor Selatan", "Bogor Utara", "Bogor Timur", "Bogor Barat", "Bogor Tengah", "Tanah Sareal"];
 
 const tanggalHeader = new Date().toLocaleDateString("id-ID", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
 
 const getStatus = (count) => {
     if (count >= 7) {
@@ -96,7 +96,7 @@ const HomeScreen = () => {
             <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
                 <ScrollView contentContainerStyle={{ paddingBottom: 90 }}>
                     <View style={{ padding: 15 }}>
-                        <View style={{ flexDirection: "row", height: 55,nwidth: 300 }} >
+                        <View style={{ flexDirection: "row", height: 55, nwidth: 300 }} >
                             <View style={{ width: 55, height: 55, borderRadius: 29, backgroundColor: "#52a9ff", justifyContent: "center", alignItems: "center" }} >
                                 <Image source={require("../../assets/pp.jpeg")} style={{ width: 50, height: 50, borderRadius: 25 }} resizeMode="contain" />
                             </View>
@@ -104,7 +104,7 @@ const HomeScreen = () => {
                                 <Text style={{ fontWeight: "bold", fontSize: 13, color: "#adadad" }} >
                                     {tanggalHeader}
                                 </Text>
-                                <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hi, Rama</Text>
+                                <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hi, Member</Text>
                             </View>
                         </View>
 
@@ -118,10 +118,10 @@ const HomeScreen = () => {
                                 <View key={index}
                                     style={{ backgroundColor: "white", borderRadius: 20, flexDirection: "row", paddingHorizontal: 20, paddingVertical: 25, shadowColor: "#000000", shadowOffset: { width: 0, height: 0 }, shadowOpacity: 0.17, shadowRadius: 2.05, elevation: 4, alignItems: "center", justifyContent: "space-between" }}>
                                     <View style={{ width: "70%" }}>
-                                        <Text style={{ fontWeight: "bold",  fontSize: 17 }}>
+                                        <Text style={{ fontWeight: "bold", fontSize: 17 }}>
                                             {item.district}
                                         </Text>
-                                        <Text style={{ fontWeight: "bold", fontSize: 14, color: "#adadad", marginTop: 9  }}>
+                                        <Text style={{ fontWeight: "bold", fontSize: 14, color: "#adadad", marginTop: 9 }}>
                                             {item.status.label}
                                         </Text>
                                     </View>

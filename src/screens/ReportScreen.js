@@ -29,7 +29,7 @@ const ReportScreen = () => {
                         const sorted = parsedData.sort((a, b) => b.postDateTime - a.postDateTime);
                         setReports(sorted);
                     } else {
-                    setReports([]);
+                        setReports([]);
                     }
                 } catch (e) {
                     console.log("Gagal ambil data:", e);
@@ -38,7 +38,7 @@ const ReportScreen = () => {
 
             fetchReports();
         }
-        }, [isFocused]);
+    }, [isFocused]);
 
     const filteredReports = reports.filter((item) => {
         const search = searchTerm.toLowerCase();
@@ -78,7 +78,7 @@ const ReportScreen = () => {
                                             </View>
                                         </View>
                                         <View style={{ flex: 1 }}>
-                                            <Text style={{ fontWeight: "bold" }}>Rama Tihara</Text>
+                                            <Text style={{ fontWeight: "bold" }}>Community Member</Text>
                                             <View style={styles.metaContainer}>
                                                 <Text style={styles.linetwo}>{item.jenisBencanaAlam}</Text>
                                                 <View style={styles.dotStyle} />
@@ -107,7 +107,7 @@ const ReportScreen = () => {
                                                         }
                                                     }}
                                                 >
-                                                    <Text style={[ styles.linethree, {
+                                                    <Text style={[styles.linethree, {
                                                         color: item.latitude !== "" && item.longitude !== "" ? "blue" : "black",
                                                         textDecorationLine: item.latitude !== "" && item.longitude !== "" ? "underline" : "none",
                                                     },]}>

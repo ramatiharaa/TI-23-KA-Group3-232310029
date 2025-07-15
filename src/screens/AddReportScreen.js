@@ -178,7 +178,7 @@ const AddReportScreen = () => {
                                 <Image source={require("../../assets/pp.jpeg")} style={{ width: 50, height: 50, borderRadius: 25 }} resizeMode="contain" />
                             </View>
                             <View style={{ flex: 1, justifyContent: "center", marginLeft: 13 }}>
-                                <Text style={{ fontWeight: "bold", fontSize: 18 }}>Rama Tihara</Text>
+                                <Text style={{ fontWeight: "bold", fontSize: 18 }}>Community Member</Text>
                             </View>
                         </View>
 
@@ -224,7 +224,7 @@ const AddReportScreen = () => {
                                     value={report.alamatLengkap}
                                     onChangeText={(text) => handleChange("alamatLengkap", text)}
                                     placeholder="Masukkan alamat lengkap..."
-                                    style={[ isEditable ? styles.input : styles.readOnlyInput, { marginBottom: 5 }]}
+                                    style={[isEditable ? styles.input : styles.readOnlyInput, { marginBottom: 5 }]}
                                 />
                                 <TouchableOpacity onPress={handleGetLocation}>
                                     <Text style={{ color: "#52a9ff" }}>Gunakan lokasi saat ini</Text>
@@ -287,12 +287,12 @@ const AddReportScreen = () => {
                         </View>
 
                         {/* Tombol testing */}
-                        <TouchableOpacity onPress={lihatData} style={[styles.button, { backgroundColor: "gray" }]}>
+                        {/* <TouchableOpacity onPress={lihatData} style={[styles.button, { backgroundColor: "gray" }]}>
                             <Text style={styles.buttonText}>Lihat Data di Console</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={resetData} style={[styles.button, { backgroundColor: "red" }]}>
                             <Text style={styles.buttonText}>Reset Semua Data</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </ScrollView>
             </SafeAreaView>
